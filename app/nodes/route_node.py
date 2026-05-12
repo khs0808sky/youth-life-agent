@@ -22,4 +22,3 @@ def route_document(state: dict) -> dict:
     return {
         "selected_docs": selected_docs
     }
-

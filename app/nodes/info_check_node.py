@@ -19,7 +19,7 @@ def check_required_info(state: dict) -> dict:
             missing_info.append("소득 정보")
 
     elif question_type == "rental_fraud":
-        if not any(word in question for word in ["근저당", "등기부", "보증금", "집주인"]):
+        if not any(word in question for word in ["근저당", "등기부", "보증금", "집주인", "임대인"]):
             missing_info.append("계약 위험 확인 정보")
 
     need_more_info = len(missing_info) > 0
@@ -28,4 +28,3 @@ def check_required_info(state: dict) -> dict:
         "missing_info": missing_info,
         "need_more_info": need_more_info
     }
-

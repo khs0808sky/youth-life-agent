@@ -5,6 +5,7 @@ from langgraph.graph import StateGraph, START, END
 from app.nodes.classify_node import classify_question
 from app.nodes.info_check_node import check_required_info
 from app.nodes.route_node import route_document
+from app.nodes.retrieve_node import retrieve_documents
 from app.nodes.answer_node import generate_answer
 from app.nodes.ask_more_info_node import ask_more_info
 
@@ -15,6 +16,8 @@ class YouthState(TypedDict):
     missing_info: List[str]
     need_more_info: bool
     selected_docs: List[str]
+    retrieved_context: str
+    retrieved_sources: List[str]
     answer: str
 
 
@@ -36,6 +39,7 @@ def build_graph():
     graph_builder.add_node("check_required_info", check_required_info)
     graph_builder.add_node("ask_more_info", ask_more_info)
     graph_builder.add_node("route_document", route_document)
+    graph_builder.add_node("retrieve_documents", retrieve_documents)
     graph_builder.add_node("generate_answer", generate_answer)
 
     graph_builder.add_edge(START, "classify_question")
@@ -51,7 +55,8 @@ def build_graph():
     )
 
     graph_builder.add_edge("ask_more_info", END)
-    graph_builder.add_edge("route_document", "generate_answer")
+    graph_builder.add_edge("route_document", "retrieve_documents")
+    graph_builder.add_edge("retrieve_documents", "generate_answer")
     graph_builder.add_edge("generate_answer", END)
 
     graph = graph_builder.compile()

@@ -7,7 +7,7 @@ from langchain_community.vectorstores import Chroma
 from app.rag.pdf_loader import load_and_split_pdfs
 
 
-VECTOR_DB_DIR = Path("data/vector_db")
+VECTOR_DB_DIR = Path("data/vector_db/youth_housing_agent")
 COLLECTION_NAME = "youth_housing_agent"
 
 

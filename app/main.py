@@ -4,8 +4,8 @@ from app.graph.youth_graph import build_graph
 def main():
     graph = build_graph()
 
-    #question = "서울 사는 27살인데 월세지원 받을 수 있어?"
-    question = "서울 사는 27살이고 소득 정보도 확인했는데 월세지원 받을 수 있어?"
+    #question = "서울 사는 27살이고 소득 정보도 확인했는데 월세지원 신청 대상은 누구야?"
+    question = "전세계약 전에 등기부등본이랑 근저당을 확인해야 해?"
 
     result = graph.invoke({
         "question": question
@@ -25,6 +25,12 @@ def main():
 
     print("\n선택된 문서:")
     print(result.get("selected_docs", []))
+
+    print("\n검색 출처:")
+    print(result.get("retrieved_sources", []))
+
+    print("\n검색된 문서 일부:")
+    print(result.get("retrieved_context", "")[:1000])
 
     print("\n최종 답변:")
     print(result.get("answer"))

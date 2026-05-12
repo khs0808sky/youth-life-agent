@@ -17,4 +17,3 @@ def classify_question(state: dict) -> dict:
     return {
         "question_type": question_type
     }
-
