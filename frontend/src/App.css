@@ -1,0 +1,455 @@
+.page {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  padding: 44px 0 60px;
+  color: var(--text);
+}
+
+/* 고정 배경 이미지 — 스크롤해도 뷰포트에 고정 */
+.pageAmbient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.pageAmbient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/house_image_background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.sectionGap {
+  margin-top: 24px;
+}
+
+/* ─── 서비스 소개 카드 ─── */
+.cardIntro {
+  padding: 44px 44px 38px;
+}
+
+.introHeader {
+  padding: 8px 4px 36px;
+  border-bottom: 1px solid var(--border);
+}
+
+.introLabel {
+  margin: 0 0 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.introTitle {
+  margin: 0;
+  font-size: clamp(26px, 3.6vw, 34px);
+  font-weight: 650;
+  letter-spacing: -0.032em;
+  line-height: 1.22;
+  color: var(--navy);
+}
+
+.introLead {
+  margin: 22px 0 0;
+  max-width: 44rem;
+  font-size: 16px;
+  line-height: 1.68;
+  color: var(--text);
+}
+
+.introPills {
+  list-style: none;
+  margin: 30px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.introPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 15px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--text-muted);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+/* ─── 공통 카드 ─── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border-card, rgba(226, 232, 240, 0.95));
+  border-radius: 14px;
+  box-shadow: var(--shadow-card);
+}
+
+.cardHead {
+  margin-bottom: 20px;
+}
+
+.cardHeadAsk {
+  margin-bottom: 18px;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+}
+
+.cardDesc {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* ─── 질문 ─── */
+.cardAsk {
+  padding: 28px 32px 30px;
+}
+
+.askForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.askTextarea {
+  width: 100%;
+  height: 120px;
+  min-height: 120px;
+  max-height: 120px;
+  resize: none;
+  padding: 14px 16px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--navy);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  font-family: inherit;
+}
+
+.askTextarea::placeholder {
+  color: var(--text-placeholder);
+}
+
+.askTextarea:focus {
+  border-color: rgba(29, 107, 74, 0.4);
+  box-shadow: 0 0 0 3px rgba(29, 107, 74, 0.1);
+}
+
+.askActions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  border-radius: 8px;
+  padding: 11px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: inherit;
+  transition: background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btnPrimary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.btnGhost {
+  background: var(--surface);
+  color: var(--navy);
+  border-color: var(--border);
+}
+
+.btnGhost:hover:not(:disabled) {
+  background: var(--bg-subtle);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.alert {
+  margin-top: 20px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+}
+
+.alertTitle {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.alertBody {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+/* ─── 답변 ─── */
+.cardAnswer {
+  padding: 28px 32px 34px;
+}
+
+.answerEmpty {
+  margin-top: 6px;
+  padding: 24px 22px;
+  border-radius: 10px;
+  border: 1px dashed rgba(203, 213, 225, 0.95);
+  background: var(--bg-subtle);
+}
+
+.answerEmptyText {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.68;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.answerFlow {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.answerLoading {
+  padding: 12px 0 8px;
+}
+
+.answerLoadingTrack {
+  height: 2px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+  position: relative;
+}
+
+.answerLoadingTrack::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 26%;
+  border-radius: 999px;
+  background: var(--accent);
+  animation: loadSweep 1.15s ease-in-out infinite;
+}
+
+@keyframes loadSweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(380%);
+  }
+}
+
+.answerLoadingNote {
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.pillRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.pillAccent {
+  background: rgba(29, 107, 74, 0.09);
+  color: var(--accent-dark);
+  border: 1px solid rgba(29, 107, 74, 0.2);
+}
+
+.pillNavy {
+  background: rgba(15, 23, 42, 0.05);
+  color: var(--navy);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+.pillMuted {
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  font-weight: 500;
+}
+
+.pillOutline {
+  background: var(--surface);
+  color: var(--navy);
+  border: 1px dashed var(--border);
+  font-weight: 500;
+}
+
+.answerBlock {
+  padding: 28px 28px 30px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+}
+
+.answerParagraph {
+  margin: 0 0 1.1em;
+  font-size: clamp(16px, 1.6vw, 17px);
+  font-weight: 450;
+  line-height: 1.82;
+  letter-spacing: -0.012em;
+  color: var(--navy);
+}
+
+.answerParagraph:last-child {
+  margin-bottom: 0;
+}
+
+.refsSection {
+  padding-top: 4px;
+}
+
+.refsTitle {
+  margin: 0 0 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.refsEmpty {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.docGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+  gap: 10px;
+}
+
+.docCard {
+  padding: 13px 15px;
+  border-radius: 10px;
+  border: 1px solid var(--border-card, rgba(226, 232, 240, 0.95));
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+}
+
+.docCardText {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--text);
+  word-break: break-word;
+}
+
+.footer {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(226, 232, 240, 0.9);
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 28px 0 44px;
+  }
+
+  .shell {
+    padding: 0 18px;
+  }
+
+  .cardIntro {
+    padding: 32px 22px 28px;
+  }
+
+  .introHeader {
+    padding: 4px 0 28px;
+  }
+
+  .introPills {
+    gap: 8px;
+  }
+
+  .cardAsk,
+  .cardAnswer {
+    padding: 22px 20px 24px;
+  }
+
+  .answerBlock {
+    padding: 20px 18px 22px;
+  }
+
+  .answerEmpty {
+    padding: 20px 16px;
+  }
+}

@@ -5,7 +5,8 @@ def main():
     graph = build_graph()
 
     #question = "서울 사는 27살이고 소득 정보도 확인했는데 월세지원 신청 대상은 누구야?"
-    question = "전세계약 전에 등기부등본이랑 근저당을 확인해야 해?"
+    #question = "전세계약 전에 등기부등본이랑 근저당을 확인해야 해?"
+    question = "전세계약 전에 등기부등본에서 어떤 항목을 확인해야 해?"
 
     result = graph.invoke({
         "question": question
